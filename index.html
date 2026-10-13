@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#101319">
+<meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="HYBRID">
@@ -11,23 +11,27 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="apple-touch-icon" href="./apple-touch-icon.png">
 <link rel="icon" href="./icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css">
+<link rel="stylesheet" href="./fitness-theme.css">
 <title>HYBRID / Training</title>
 </head>
 <body>
 <div class="shell">
 <header class="topbar">
  <div class="brand"><span class="brandicon">H<span class="spark">/</span></span><span><b>HYBRID</b><small>TRAINING CLUB</small></span></div>
- <div class="topright"><span id="saveStatus" class="status"><i></i> No dispositivo</span><button id="settingsShortcut" class="avatar" data-tab="settings" aria-label="Configurações">⚙</button></div>
+ <div class="topright"><span id="saveStatus" class="status"><i></i> No dispositivo</span><button id="settingsShortcut" class="avatar" data-tab="settings" aria-label="Configurações"><span data-symbol="settings"></span></button></div>
 </header>
 <div id="app" aria-live="polite"></div>
 </div>
 <nav class="bottomnav" aria-label="Navegação principal">
- <button data-tab="home" id="nav-home"><span class="ni">⌂</span><span>Início</span></button>
- <button data-tab="training" id="nav-training"><span class="ni">▣</span><span>Treinar</span></button>
- <button data-tab="calendar" id="nav-calendar"><span class="ni">▦</span><span>Agenda</span></button>
- <button data-tab="progress" id="nav-progress"><span class="ni">↗</span><span>Evolução</span></button>
- <button data-tab="settings" id="nav-settings"><span class="ni">⚙</span><span>Ajustes</span></button>
+ <button data-tab="home" id="nav-home"><span class="ni" data-symbol="home"></span><span>Início</span></button>
+ <button data-tab="training" id="nav-training"><span class="ni" data-symbol="dumbbell"></span><span>Treinar</span></button>
+ <button data-tab="calendar" id="nav-calendar"><span class="ni" data-symbol="calendar"></span><span>Agenda</span></button>
+ <button data-tab="progress" id="nav-progress"><span class="ni" data-symbol="chart"></span><span>Evolução</span></button>
+ <button data-tab="settings" id="nav-settings"><span class="ni" data-symbol="settings"></span><span>Ajustes</span></button>
 </nav>
 <div id="timerDock" class="timerdock hidden" aria-live="off"></div>
 <div id="toast" class="toast" role="status" aria-live="polite"></div>

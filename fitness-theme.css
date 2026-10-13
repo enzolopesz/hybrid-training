@@ -1,0 +1,158 @@
+/* HYBRID 2.3 — Fitness Neon (experimental visual skin)
+   Dark OLED + Energy Palette; no code/data migrations. The default CSS from
+   version 2.2 remains in styles.css for easy rollback. */
+:root {
+ --bg:#000000;
+ --surface:#1C1C1E;
+ --elev:#262629;
+ --raised:#323236;
+ --line:#38383D;
+ --text:#FFFFFF;
+ --muted:#A1A1A8;
+ --lime:#32D74B;
+ --lime2:#55e66a;
+ --blue:#0A84FF;
+ --amber:#FF2D55;
+ --violet:#AA84FF;
+ --red:#FF453A;
+ --shadow:0 18px 52px rgba(0,0,0,.35);
+ --ff-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+ --ff-display:'Montserrat','Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+}
+* { -webkit-tap-highlight-color:transparent }
+html { color-scheme:dark }
+body {background:#000;color:var(--text);font-family:var(--ff-body);font-variant-numeric:tabular-nums;letter-spacing:-.009em}
+button, input, select, textarea { font-family:var(--ff-body);font-variant-numeric:tabular-nums }
+button {transition:filter .16s,background .16s,border-color .16s,transform .16s}
+button:not(:disabled):active {transform:scale(.985)}
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline:2px solid var(--blue); outline-offset:2px }
+input,select,textarea {background:var(--elev);border-color:var(--line);border-radius:14px;color:var(--text)}
+input::placeholder,textarea::placeholder{color:#9d9da3}
+input[type=checkbox]{accent-color:var(--lime)}
+.shell{max-width:800px;padding-left:16px;padding-right:16px}
+.topbar{padding:calc(17px + env(safe-area-inset-top)) 1px 18px}
+.brand{gap:11px;letter-spacing:.07em}
+.brandicon {background:linear-gradient(145deg,#52f465 2%,#24cb54 100%); color:#061707;border-radius:13px;box-shadow:0 5px 19px rgba(50,215,75,.17);font-family:var(--ff-display);font-size:22px;transform:none}
+.brandicon .spark {color:#0f6b21;right:5px;top:3px}
+.brand b{font-family:var(--ff-display);font-weight:900;font-size:16px;letter-spacing:.075em}
+.brand small{font-size:8px;letter-spacing:.205em;color:#b1b1b7}
+.status{background:#17251A;border-color:#285533;color:#a5f0ae;font-size:10px}
+.status i{background:var(--lime)}
+.status.fail {background:#351c24;color:#ffadb0;border-color:#803143}
+.avatar{background:var(--surface);width:38px;height:38px;border-radius:13px}
+.eyebrow{color:var(--lime);font-size:10px;font-weight:800;letter-spacing:.18em}
+.hero{padding:19px 1px 18px;position:relative;isolation:isolate}
+.hero:before {content:'';position:absolute;inset:-15px -15px 0 auto;width:180px;z-index:-1;opacity:.26;pointer-events:none;background:radial-gradient(ellipse at top right, rgba(50,215,75,.19), transparent 66%)}
+h1,h2,h3,.metric strong,.weeklabel,.timerdock b{font-family:var(--ff-display)}
+h1{font-size:clamp(30px,7.9vw,49px);font-weight:900;line-height:1.09;letter-spacing:-.061em;margin:8px 0 12px}
+h2{font-size:19px;font-weight:800;letter-spacing:-.035em}
+h3{font-weight:800;letter-spacing:-.02em}
+.hero p{font-size:13px;max-width:610px;line-height:1.65;color:#abaBB2}
+.mint {color:var(--lime)}
+.subtle,.small.subtle {color:var(--muted)}
+.panel,.metric,.exercise,.workoutcard,.agenda-detail {background:var(--surface);border-color:var(--line);border-radius:20px}
+.panel{padding:17px;margin-bottom:13px}
+.panel.soft {background:var(--elev)}
+.metric{padding:16px 12px;position:relative;overflow:hidden}
+.metric:before {content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,rgba(50,215,75,.7),transparent)}
+.metric strong{font-size:clamp(23px,6.5vw,29px);font-weight:800;letter-spacing:-.05em;white-space:nowrap}
+.metric span{font-size:10px;line-height:1.42;color:var(--muted)}
+.section {margin-top:23px;margin-bottom:12px}
+.section h2 {font-size:19px}
+.btn {background:var(--lime);color:#06170a;border-radius:16px;font-size:13px;font-weight:800;min-height:48px;box-shadow:0 8px 22px rgba(50,215,75,.10)}
+.btn:not(.alt):not(.ghost):not(.red):hover {filter:brightness(1.07)}
+.btn.alt{background:var(--elev);border-color:var(--line);color:#f4f4f6;box-shadow:none}
+.btn.ghost{color:var(--lime);background:transparent;box-shadow:none}
+.btn.red{color:#ff8290;background:#361c24;border-color:#7d3244;box-shadow:none}
+.btn.sm {font-weight:750;min-height:37px;border-radius:12px}
+.btn.square{min-height:39px;border-radius:12px}
+.chip{background:var(--elev);border-color:#49494e;color:#c0c0c7;font-weight:700}
+.chip.lime {background:rgba(50,215,75,.12);color:#6ded7c;border-color:rgba(50,215,75,.32)}
+.chip.orange {background:rgba(255,45,85,.11);color:#ff708b;border-color:rgba(255,45,85,.35)}
+.chip.blue {background:rgba(10,132,255,.12);color:#6ab5ff;border-color:rgba(10,132,255,.35)}
+.chip.violet{background:rgba(170,132,255,.11);color:#c1a7ff;border-color:rgba(170,132,255,.35)}
+.day {background:#262629;min-height:66px;border-radius:14px}
+.day b {color:#b7b7be;font-weight:750}
+.day strong{font-family:var(--ff-display);font-weight:800}
+.day.today:not(.active){border-color:var(--blue)}
+.day.active {background:var(--lime);border-color:var(--lime);color:#06170a;box-shadow:0 6px 23px rgba(50,215,75,.16)}
+.day.active b,.day.active i {color:#123c1b}
+.day.hasrun:not(.active) i{color:var(--amber)}
+.workoutcard{padding:14px;border-radius:19px}
+.workoutcard .badgeicon{height:48px;min-width:48px;border-radius:15px;background:rgba(50,215,75,.13);color:var(--lime)}
+.workoutcard .badgeicon.run{background:rgba(255,45,85,.13);color:var(--amber)}
+.workoutcard .badgeicon.rest{background:rgba(10,132,255,.13);color:var(--blue)}
+.workoutcard h3 {font-size:15px}
+.workoutcard p{line-height:1.45;color:var(--muted)}
+.progress {height:8px;background:#343439}
+.progress>i{background:linear-gradient(90deg,#32D74B,#b3ff67)}
+.exercise{border-radius:22px;padding:16px}
+.exercise.complete {border-color:rgba(50,215,75,.55)}
+.enum {background:#323237;color:#d5d5db;border-radius:11px}
+.lastline span {color:#b2b2ba}
+.setline.done{background:rgba(50,215,75,.085)}
+.counter,.mark {border-radius:13px;background:#2B2B30;border-color:#414148}
+.counter button {font-size:20px;color:#d4d4d9}
+.counter input{color:#fefefe}
+.mark.done {background:var(--lime);border-color:var(--lime);color:#06200e}
+.hints {background:#29292c;border-radius:13px;color:#b2b2b9}
+.hints.positive {background:rgba(50,215,75,.09);border-color:rgba(50,215,75,.32);color:#99ecab}
+.fieldlabel {color:#c0c0c5}
+.resthint {background:rgba(10,132,255,.10);border-color:rgba(10,132,255,.25);color:#83c1ff}
+.callout {background:rgba(10,132,255,.10);border-color:rgba(10,132,255,.30);color:#c0dcff;border-radius:16px}
+.callout.warn {background:rgba(255,45,85,.09);border-color:rgba(255,45,85,.28);color:#ffc5d2}
+.runbox {background:rgba(255,45,85,.09);border-color:rgba(255,45,85,.32);color:#ffd6df}
+.runbox b {color:var(--amber)}
+.bottomnav {background:rgba(20,20,22,.96);border-top-color:#37373c;backdrop-filter:blur(25px) saturate(150%);-webkit-backdrop-filter:blur(25px) saturate(150%);padding-top:9px;padding-bottom:calc(7px + env(safe-area-inset-bottom))}
+.bottomnav button {font-weight:600;font-size:10px;border-radius:14px;padding:7px 2px 6px}
+.bottomnav button.active {color:var(--lime);background:rgba(50,215,75,.075)}
+.bottomnav .ni{min-height:26px}
+.bottomnav button .ui-icon{stroke-width:2}
+.timerdock {background:#1C281F;border:1px solid #3D6A46;border-radius:19px;box-shadow:0 10px 35px rgba(0,0,0,.55)}
+.timerdock b {font-size:26px;letter-spacing:-.045em;font-weight:800;color:#dbffe2}
+.timerdock small {color:#a5cfac}
+.timerdock button{background:#294332;border-color:#3c704a;color:#ebfff0}
+.toast{background:var(--lime);border-radius:14px;color:#07200d}
+.overlay {background:rgba(0,0,0,.8);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.sheet {background:var(--surface);border-color:#55555a;border-radius:26px 26px 16px 16px}
+.sheetfooter{background:var(--surface)}
+.editrow .actions button{background:#2e2e32;border-color:#48484e}
+.graph polyline {stroke:var(--lime)}
+.graph circle{fill:var(--lime)}
+.barline .runbar{background:linear-gradient(90deg,#FF2D55,#ff7195)}
+.barline i:not(.runbar){background:linear-gradient(90deg,#32D74B,#7afb75)}
+.listrow {border-bottom-color:#35353a}
+.empty {border-color:#48484c;color:var(--muted)}
+a,.mutedlink{color:#6beb7b}
+.pillset button.active{background:var(--lime);color:#06170a}
+.weeklyrow{border-bottom-color:#39393e}
+.agenda-detail {background:#1c1c1e}
+.agenda-detail>.workoutcard {background:#252528}
+/* Real weekly completion rings, computed from the user's configured sessions. */
+.activity-panel {padding:19px 17px 16px;background:linear-gradient(160deg,#1e1e21 0%,#171719 100%);border:1px solid #333337;border-radius:23px;margin:0 0 15px}
+.activity-head {display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:20px}
+.activity-head h2{margin:0;font-size:17px}
+.activity-head p{margin:4px 0 0;font-size:11px;color:var(--muted)}
+.activity-head .activity-period{white-space:nowrap;font-size:10px;font-weight:700;color:#b7b7bf;padding:7px 9px;border:1px solid #414146;border-radius:99px}
+.activity-rings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.ring-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;min-width:0}
+.activity-ring{width:clamp(78px,25vw,108px);height:clamp(78px,25vw,108px);border-radius:50%;display:grid;place-items:center;background:conic-gradient(from -90deg,var(--ring-color) var(--ring-fill),#303035 0);box-shadow:0 0 17px var(--ring-glow)}
+.ring-center{width:calc(100% - 16px);height:calc(100% - 16px);border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#18181a}
+.ring-center strong{font-family:var(--ff-display);font-weight:800;font-size:clamp(16px,5vw,24px);letter-spacing:-.045em;line-height:1.15}
+.ring-center small{font-family:var(--ff-body);font-size:9px;color:#aaaab3;margin-top:2px}
+.ring-card b{font-size:11px;font-weight:800;letter-spacing:-.02em}
+.ring-card .ring-caption{font-size:10px;color:var(--muted);line-height:1.3}
+.activity-footer {border-top:1px solid #35353a;margin-top:18px;padding-top:13px;color:#bfbfc8;font-size:11px;line-height:1.5}
+.activity-dot{display:inline-block;width:7px;height:7px;margin:0 4px 0 0;border-radius:50%;background:var(--lime)}
+.activity-dot.run{background:var(--amber)}
+.activity-dot.all{background:var(--blue)}
+/* More comfortable controls and no horizontal overflow in narrow iPhones. */
+.shell,#app,.panel,.exercise,.workoutcard,.agenda-detail,.sheet,.activity-panel{min-width:0;max-width:100%}
+.grid2,.grid3{min-width:0}
+.grid2>* , .grid3>* {min-width:0}
+@media(max-width:375px){.activity-panel{padding:15px 10px}.ring-card{gap:6px}.activity-rings{gap:3px}.ring-card b{font-size:10px}.ring-card .ring-caption{font-size:9px}.shell{padding-left:11px;padding-right:11px}.topbar{padding-right:0}}
+@media(max-width:520px){.formgrid{grid-template-columns:minmax(0,1fr)}.formgrid input,.formgrid select,.formgrid textarea{min-width:0;max-width:100%;font-size:16px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}button,.progress>i,.toast{transition:none!important}}
+/* Keep decorative glow within the viewport and wrap narrow card descriptions. */
+.hero:before{inset:-15px 0 0 auto}
+.workoutcard p,.workoutcard h3{overflow-wrap:anywhere}
